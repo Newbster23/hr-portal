@@ -1,0 +1,88 @@
+.employee-list-container {
+  padding: 30px; /* Adjust the value as needed */
+}
+
+
+/* Style the card container */
+.listContainer {
+  background-color: whitesmoke;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style table rows */
+.listContainer .table-row {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Style table cells (columns) */
+.listContainer .table-cell {
+  flex: 1;
+  padding: 5px;
+}
+
+/* Style the header row */
+.listContainer .header {
+  font-weight: bold;
+  background-color: #5c52e9;
+  color: white;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Remove right border for the last cell in each row */
+.listContainer .table-cell:last-child {
+  border-right: none;
+}
+
+/* Button style */
+.listContainer .btn {
+  background-color: rgb(165, 238, 214);
+  border: 1px solid rgb(79, 235, 183);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  color: #008ce9;
+}
+
+/* Pagination container */
+.listContainer .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style the pagination labels */
+.pagination li {
+  background-color: #5c52e9;
+  color: white;
+  border: 1px solid #5c52e9;
+  padding: 5px 10px;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 2px;
+  text-decoration: none;
+  list-style: none;
+}
+
+.pagination li a {
+  color: white;
+}
+
+/* Style the active page label */
+.pagination li.active {
+  background-color: #a0bddb;
+  color: white;
+  border: 1px solid #a0bddb;
+  padding: 5px 10px;
+  border-radius: 0.5rem;
+}
+
+/* Hide the "next" marker */
+.pagination li::marker {
+  content: "";
+  display: none;
+}
+

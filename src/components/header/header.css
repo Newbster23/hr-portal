@@ -1,0 +1,54 @@
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #070157;
+  color: white;
+}
+
+/* Logo Container */
+.logo-container {
+  flex: 1; /* Takes up remaining space on the left */
+}
+
+.logo {
+  width: 70px;
+  height: 30px;
+}
+
+/* Header Right (for logout link) */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.item-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s; /* Smooth transition for background color */
+  margin-right: 1rem;
+}
+
+.item-link img {
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+
+/* Highlight on hover */
+.item-link:hover {
+  background-color: #5c52e9;
+}
+
+
+/* Media Query for Responsiveness (adjust as needed) */
+@media (max-width: 768px) {
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+}

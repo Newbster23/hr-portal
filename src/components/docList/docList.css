@@ -1,0 +1,19 @@
+.docListContainer {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+
+.doc-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .doc-name {
+    flex: 1;
+}
+  
+  
+  
