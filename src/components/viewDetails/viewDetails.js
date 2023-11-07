@@ -59,16 +59,22 @@ const ViewDetails = () => {
     "Last Drawn salary",
   ];
 
-  function extractFullDate(dateString) {
-    const date = new Date(dateString);
-    const formattedDateIST = date.toLocaleString("en-IN", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      timeZone: "Asia/Kolkata",
-    });
-    return formattedDateIST;
-  }
+  const formatDate = (date) => {
+    const retrievedDate = new Date(date); // This date is already in UTC.
+    console.log(retrievedDate);
+    const year = retrievedDate.getFullYear();
+    const month = retrievedDate.getMonth() + 1; // Month is zero-based, so add 1.
+    const day = retrievedDate.getDate();
+
+    console.log(day)
+    // Construct the date in the format "YYYY-MM-DD".
+    const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day
+      .toString()
+      .padStart(2, "0")}`;
+
+      console.log("formatted date", formattedDate);
+      return formattedDate;
+  };
 
   return (
     <div style={{ backgroundColor: "whitesmoke" }}>
@@ -94,7 +100,7 @@ const ViewDetails = () => {
                 { label: "Gender", value: "Female" },
                 {
                   label: "Date of Birth",
-                  value: extractFullDate(personalDetails.date_of_birth),
+                  value: formatDate(personalDetails.date_of_birth),
                 },
                 { label: "Phone number", value: personalDetails.phone_number },
                 { label: "Email", value: personalDetails.email },
@@ -178,7 +184,7 @@ const ViewDetails = () => {
                     <div className="data-value">
                       {experiencelabels[itemIndex] === "Start date" ||
                       experiencelabels[itemIndex] === "End Date"
-                        ? extractFullDate(value)
+                        ? formatDate(value)
                         : value}
                     </div>
                   </div>

@@ -17,7 +17,7 @@ const AppRoutes = () => {
     if (!token && !["/reset-password", "/forgot-password"].includes(location.pathname)) {
       navigate("/login");
     }
-  });
+  }, [token, location.pathname, navigate]);
 
   return (
     <Routes>
@@ -44,10 +44,10 @@ const AppRoutes = () => {
         element={
           token ? (
             <Layout>
-              <ResetPassword />
+              <ResetPassword/>
             </Layout>
           ) : (
-            <ResetPassword />
+            <ResetPassword/>
           )
         }
       />

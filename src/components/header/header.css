@@ -8,14 +8,9 @@
   color: white;
 }
 
-/* Logo Container */
-.logo-container {
-  flex: 1; /* Takes up remaining space on the left */
-}
-
 .logo {
-  width: 70px;
-  height: 30px;
+  width: 15%;
+  height: 5%;
 }
 
 /* Header Right (for logout link) */
@@ -44,11 +39,3 @@
   background-color: #5c52e9;
 }
 
-
-/* Media Query for Responsiveness (adjust as needed) */
-@media (max-width: 768px) {
-  .logo {
-    width: 60px;
-    height: 60px;
-  }
-}

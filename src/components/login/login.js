@@ -40,11 +40,9 @@ const Login = () => {
       
       if (response.data.status === 200) {
         setLoginError("");
-        console.log(response.data)
         setUser({ username: response.data.data.username, email: response.data.data.email })
         navigate('/home');
       } else if(response.data.status  === 401) {
-        console.log("here")
         setLoginError("Invalid username or password"); // Set the login error message
       } else {
         setLoginError("An error occurred during login");

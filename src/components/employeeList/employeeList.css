@@ -2,7 +2,6 @@
   padding: 30px; /* Adjust the value as needed */
 }
 
-
 /* Style the card container */
 .listContainer {
   background-color: whitesmoke;
@@ -21,6 +20,7 @@
 .listContainer .table-cell {
   flex: 1;
   padding: 5px;
+  text-align: center;
 }
 
 /* Style the header row */
@@ -86,3 +86,46 @@
   display: none;
 }
 
+/* css for Fliters */
+.grid-container input,
+.grid-container label {
+  display: block;
+}
+
+/* Create a grid layout with three columns */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  justify-items: center;
+  align-items: center; 
+}
+
+.grid-container div {
+  justify-content: center;
+}
+.grid-container div label {
+ color: #666;
+}
+
+.resetBtn {
+  text-align: center;
+  grid-column: 5;
+  justify-items: center;
+  margin-top: 1rem;
+  }
+
+.resetBtn button {
+  background-color: #0b027e;
+  color: whitesmoke;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.no-results {
+  text-align: center; /* Center the text horizontally */
+  padding: 20px; /* Add some padding around the message */
+  font-size: 18px; /* Adjust the font size as needed */
+  color: #666; /* Set the text color */
+}

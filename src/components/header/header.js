@@ -29,9 +29,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
-      </div>
+      <img src={logo} alt="Logo" className="logo" />
       <div className="header-right">
         <Link to="/reset-password" className="item-link">
           <img src={resetPassword} alt="reset-password" /> Reset Password
