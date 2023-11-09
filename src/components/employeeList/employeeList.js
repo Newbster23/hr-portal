@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosAPI } from "../../axios";
 import ReactPaginate from "react-paginate";
 import "./employeeList.css";
+import Loader from "../loader/Loader";
 
 const EmployeeList = () => {
   const navigate = useNavigate();
@@ -10,6 +11,7 @@ const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [nameFilter, setNameFilter] = useState("");
   const [emailFilter, setEmailFilter] = useState("");
   const [phoneFilter, setPhoneFilter] = useState("");
@@ -20,16 +22,24 @@ const EmployeeList = () => {
 
     try {
       const response = await axiosAPI.get("api/employees");
-      setEmployees(response.data);
+      if (response.data.status === 200) {
+        setEmployees(response.data.data);
+        setError(null);
+      } else {
+        setError("Failed to get the list of employees");
+      }
     } catch (error) {
       console.error(error);
+      setError("Failed to get the list of employees");
     }
 
     setLoading(false);
   };
 
   useEffect(() => {
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 5000);
   }, []);
 
   const formatDate = (date) => {
@@ -66,7 +76,9 @@ const EmployeeList = () => {
   });
 
   const itemsPerPage = 10;
-  const totalItems = filtersApplied ? filteredEmployees.length : employees.length;
+  const totalItems = filtersApplied
+    ? filteredEmployees.length
+    : employees.length;
   const offset = currentPage * itemsPerPage;
   const paginatedFilteredEmployees = Array.isArray(filteredEmployees)
     ? filteredEmployees.slice(offset, offset + itemsPerPage)
@@ -79,7 +91,7 @@ const EmployeeList = () => {
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
-
+  console.log(employees);
   return (
     <div className="employee-list-container">
       <h2>Employees List</h2>
@@ -140,14 +152,16 @@ const EmployeeList = () => {
       </div>
       <div className="listContainer">
         <div className="table-row header">
-          <div className="table-cell">Name</div>
-          <div className="table-cell">Email</div>
-          <div className="table-cell">Phone Number</div>
-          <div className="table-cell">Date of Birth</div>
-          <div className="table-cell">Action</div>
+          <div className="table-cell">NAME</div>
+          <div className="table-cell">EMAIL</div>
+          <div className="table-cell">PHONE NUMBER</div>
+          <div className="table-cell">DATE OF BIRTH</div>
+          <div className="table-cell">ACTION</div>
         </div>
         {loading ? (
-          <div className="loading-indicator">Loading...</div>
+          <Loader />
+        ) : error ? (
+          <div className="no-results">{error}</div>
         ) : filteredEmployees.length > 0 ? (
           paginatedFilteredEmployees.map((employee, index) => (
             <div className="table-row" key={index}>
@@ -208,6 +222,7 @@ const EmployeeList = () => {
         ) : (
           <div className="no-results">No data available.</div>
         )}
+
         {totalItems > itemsPerPage && totalItems > 0 ? (
           <div className="pagination">
             <ReactPaginate

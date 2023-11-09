@@ -98,14 +98,14 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 10px;
   justify-items: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .grid-container div {
   justify-content: center;
 }
 .grid-container div label {
- color: #666;
+  color: #666;
 }
 
 .resetBtn {
@@ -113,7 +113,7 @@
   grid-column: 5;
   justify-items: center;
   margin-top: 1rem;
-  }
+}
 
 .resetBtn button {
   background-color: #0b027e;

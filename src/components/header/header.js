@@ -2,7 +2,7 @@ import React from "react";
 import "./header.css";
 import { axiosAPI } from "../../axios";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../images/logo.jpeg";
+import logo from "../../images/logo.png";
 import logout from "../../images/logout.png";
 import resetPassword from "../../images/reset-password.png";
 import { useUser } from "../../userContext";

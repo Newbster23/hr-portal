@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 import { axiosAPI } from "../../axios";
 import loginBackground from "../../images/backgroung-login.jpg";
 import "./login.css";
-import { useUser } from '../../userContext';
+import { useUser } from "../../userContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
+  const token = Cookies.get("token");
 
   const { setUser } = useUser();
   const [username, setUsername] = useState("");
@@ -15,14 +17,20 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState("");
   const [loginError, setLoginError] = useState(null);
 
+  useEffect(() => {
+    if (token) {
+      navigate("/home");
+    }
+  }, [token, navigate]);
+
   const validateLogin = async () => {
-    if( username.trim() === "" || password.trim() === "") {
+    if (username.trim() === "" || password.trim() === "") {
       if (username.trim() === "") {
         setUsernameError("Username is required");
       } else {
         setUsernameError("");
       }
-  
+
       if (password.trim() === "") {
         setPasswordError("Password is required");
       } else {
@@ -30,25 +38,27 @@ const Login = () => {
       }
       return;
     }
-    
 
     try {
-      const response = await axiosAPI.post('api/login', {
+      const response = await axiosAPI.post("api/login", {
         username: username,
         password: password,
       });
-      
+
       if (response.data.status === 200) {
         setLoginError("");
-        setUser({ username: response.data.data.username, email: response.data.data.email })
-        navigate('/home');
-      } else if(response.data.status  === 401) {
-        setLoginError("Invalid username or password"); // Set the login error message
+        setUser({
+          username: response.data.data.username,
+          email: response.data.data.email,
+        });
+        navigate("/home");
+      } else if (response.data.status === 401) {
+        setLoginError(response.data.message); // Set the login error message
       } else {
         setLoginError("An error occurred during login");
       }
     } catch (error) {
-      console.error('Error during login:', error);
+      console.error("Error during login:", error);
       setLoginError("An error occurred during login"); // Set the error message
     }
   };
@@ -101,7 +111,7 @@ const Login = () => {
               className={passwordErrorInput}
             />
             {passwordError && <p className="error-text">{passwordError}</p>}
-            <a onClick={() => navigate('/forgot-password')}>Forgot Password?</a>
+            <a onClick={() => navigate("/forgot-password")}>Forgot Password?</a>
             <br />
             {loginError && <p className="error-text">{loginError}</p>}
             <button type="button" onClick={validateLogin}>

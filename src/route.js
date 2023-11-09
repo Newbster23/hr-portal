@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 import ViewDetails from "./components/viewDetails/viewDetails";
 import Login from "./components/login/login";
 import EmployeeList from "./components/employeeList/employeeList";
 import Layout from "./layout";
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
 import ResetPassword from "./components/resetPassword/resetPassword";
-import Cookies from "js-cookie";
+import PageNotFound from "./components/pageNotFound/pageNotFound";
+
 
 const AppRoutes = () => {
   const token = Cookies.get("token");
@@ -14,7 +16,7 @@ const AppRoutes = () => {
   const location = useLocation();
 
   useEffect(() => {
-    if (!token && !["/reset-password", "/forgot-password"].includes(location.pathname)) {
+    if (!token && location.pathname === "/") {
       navigate("/login");
     }
   }, [token, location.pathname, navigate]);
@@ -44,13 +46,14 @@ const AppRoutes = () => {
         element={
           token ? (
             <Layout>
-              <ResetPassword/>
+              <ResetPassword />
             </Layout>
           ) : (
-            <ResetPassword/>
+            <ResetPassword />
           )
         }
       />
+       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
