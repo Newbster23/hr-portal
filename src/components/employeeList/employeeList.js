@@ -37,9 +37,7 @@ const EmployeeList = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchData();
-    }, 5000);
+    fetchData();
   }, []);
 
   const formatDate = (date) => {

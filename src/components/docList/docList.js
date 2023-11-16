@@ -45,29 +45,31 @@ const DocList = (props) => {
   };
 
   return (
-    <div className="docListContainer">
+    <div>
       {error ? (
         <div className="no-results">{error}</div>
       ) : (
-        docs.map((doc, index) => (
-          <div className="doc-column" key={index}>
-            <div className="doc-download">
-              <a
-                href={`${process.env.REACT_APP_API_HOST}/api/download/${folder}/${doc}`}
-                download
-              >
-                <img
-                  src={download}
-                  height="20px"
-                  width="20px"
-                  alt="download"
-                ></img>
-              </a>
+        <div className="docListContainer">
+          {docs.map((doc, index) => (
+            <div className="doc-column" key={index}>
+              <div className="doc-download">
+                <a
+                  href={`${process.env.REACT_APP_API_HOST}/api/download/${folder}/${doc}`}
+                  download
+                >
+                  <img
+                    src={download}
+                    height="20px"
+                    width="20px"
+                    alt="download"
+                  ></img>
+                </a>
+              </div>
+              <div className="doc-name">{doc}</div>
+              <label>{getFileName(doc)}</label>
             </div>
-            <div className="doc-name">{doc}</div>
-            <label>{getFileName(doc)}</label>
-          </div>
-        ))
+          ))}
+        </div>
       )}
     </div>
   );

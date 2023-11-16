@@ -24,7 +24,7 @@
   align-items: center;
   text-decoration: none;
   color: white;
-  transition: background-color 0.3s; /* Smooth transition for background color */
+  transition: background-color 0.3s;
   margin-right: 1rem;
 }
 

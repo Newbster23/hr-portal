@@ -11,17 +11,17 @@
 }
 
 .doc-row label {
-  font-weight: bold; /* Make the label text bold */
+  font-weight: bold;
 }
 
 .doc-name {
-  text-align: center; /* Center the content within the name column */
+  text-align: center;
   margin-bottom: 10px;
   color: grey;
 }
 
 .doc-download {
-  text-align: center; /* Center the content within the download column */
+  text-align: center;
 }
 
 /* Remove borders from label and .doc-name */
@@ -32,13 +32,9 @@ label,
 }
 
 .no-results {
-  text-align: center; /* Center the text horizontally */
-  padding: 20px; /* Add some padding around the message */
-  font-size: 18px; /* Adjust the font size as needed */
-  color: #666; /* Set the text color */
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+  margin: auto;
 }
-
-

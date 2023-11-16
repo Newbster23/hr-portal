@@ -6,7 +6,7 @@
 
 .underline {
   text-decoration: underline;
-  text-underline-offset: 4px; /* Adjust this value to control the space between underline and text */
+  text-underline-offset: 4px;
   text-decoration-thickness: 2px;
   margin-bottom: 1rem;
 }
@@ -80,25 +80,18 @@
   height: 20px;
 }
 
-/* .no-results {
-  text-align: center; 
-  padding: 20px; 
-  font-size: 18px;
-  color: #666;
-} */
-
 .error-message {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background-color: #f8d7da; /* Light red background color */
-  color: #721c24; /* Dark red text color */
+  background-color: #f8d7da;
+  color: #721c24;
   padding: 15px;
-  border: 1px solid #dc3545; /* Red border */
+  border: 1px solid #dc3545;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: fit-content;
 }
 

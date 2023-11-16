@@ -1,5 +1,5 @@
 .employee-list-container {
-  padding: 30px; /* Adjust the value as needed */
+  padding: 30px;
 }
 
 /* Style the card container */
@@ -124,8 +124,8 @@
 }
 
 .no-results {
-  text-align: center; /* Center the text horizontally */
-  padding: 20px; /* Add some padding around the message */
-  font-size: 18px; /* Adjust the font size as needed */
-  color: #666; /* Set the text color */
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
 }

@@ -1,5 +1,3 @@
-/* NotFound.css */
-
 .not-found-container {
   text-align: center;
   padding: 50px;
@@ -8,9 +6,9 @@
 }
 
 .not-found-container h2 {
-  color: #d9534f; /* Red color for the heading */
+  color: #d9534f;
 }
 
 .not-found-container p {
-  color: #777; /* Gray color for the text */
+  color: #777;
 }

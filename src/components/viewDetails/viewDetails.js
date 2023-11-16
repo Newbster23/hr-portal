@@ -34,9 +34,7 @@ const ViewDetails = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchData(id);
-    }, 5000);
+    fetchData(id);
   }, [id]);
 
   const goBack = () => {

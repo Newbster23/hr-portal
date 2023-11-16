@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { axiosAPI } from "../../axios";
 import loginBackground from "../../images/backgroung-login.jpg";
 import "./login.css";
+import logo from "../../images/logo.png";
 import { useUser } from "../../userContext";
 import { useNavigate } from "react-router-dom";
 
@@ -80,6 +81,9 @@ const Login = () => {
     <div className="loginContainer">
       <div className="background">
         <img src={loginBackground} alt="Background" />
+      </div>
+      <div className="logoContainer">
+        <img src={logo} alt="Logo" className="logo" />
       </div>
       <div className="formContainer">
         <div className="loginForm">
