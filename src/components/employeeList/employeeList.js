@@ -89,7 +89,7 @@ const EmployeeList = () => {
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
-  console.log(employees);
+  
   return (
     <div className="employee-list-container">
       <h2>Employees List</h2>
