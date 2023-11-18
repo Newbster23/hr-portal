@@ -59,13 +59,12 @@ const ResetPassword = () => {
     }
   };
 
-  const handleResetPassword = async (email, expirationTime) => {
+  const handleResetPassword = async (token) => {
     try {
       // Send a request to your server to initiate the password reset.
       const response = await axiosAPI.post("/api/reset-password", {
         newPassword: confirmPassword,
-        email: email,
-        expirationTime: expirationTime,
+        token
       });
 
       if (response.data.status === 200) {
@@ -124,9 +123,8 @@ const ResetPassword = () => {
     } else {
       const currentURL = window.location.href;
       const url = new URL(currentURL);
-      const email = url.searchParams.get("user");
-      const expirationTime = url.searchParams.get("expires");
-      handleResetPassword(email, expirationTime);
+      const token = url.searchParams.get("token");
+      handleResetPassword(token);
     }
   };
 
