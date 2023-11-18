@@ -22,7 +22,7 @@ const ResetPassword = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axiosAPI.get("api/logout");
+      const response = await axiosAPI.post("api/logout");
 
       if (response.data.status === 200) {
         setUser(null);
